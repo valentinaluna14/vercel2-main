@@ -1,0 +1,392 @@
+/* ============================================
+   ESTILOS PERSONALIZADOS - SISTEMA DE USUARIOS
+   ============================================
+
+   Hoja de estilos personalizada para la aplicación de Gestión de Usuarios.
+   Complementa Bootstrap 5.3.2 con estilos específicos de la aplicación.
+
+   Estructura:
+   1. Variables CSS (tema de colores)
+   2. Reset y estilos base
+   3. Componentes específicos (navbar, tarjetas, tablas, botones, etc.)
+   4. Animaciones y transiciones
+   5. Estados de UI (carga, hover, etc.)
+   6. Media queries para responsive design
+
+   @author Sistema de Gestión de Usuarios
+   @version 1.0.0
+   ============================================ */
+
+/* ==========================================
+   VARIABLES CSS - TEMA DE COLORES
+   ========================================== */
+/**
+ * Variables CSS personalizables para el tema visual.
+ * Modificar estos valores cambia el esquema de colores de toda la aplicación.
+ *
+ * Para cambiar el tema:
+ * 1. Modificar los valores hexadecimales de las variables
+ * 2. Los cambios se reflejan automáticamente en toda la app
+ */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-gray: #f8f9fa;
+    --border-radius: 0.375rem;
+    --transition-speed: 0.3s;
+}
+
+/* --- Reset y Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Navbar Personalizado --- */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.navbar-brand:hover {
+    opacity: 0.9;
+}
+
+/* --- Container Principal --- */
+.container {
+    flex: 1;
+    padding-bottom: 2rem;
+}
+
+/* --- Tarjetas --- */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* --- Tabla de Usuarios --- */
+.table-responsive {
+    border-radius: var(--border-radius);
+}
+
+#tablaUsuarios {
+    margin-bottom: 0;
+}
+
+#tablaUsuarios thead th {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+}
+
+#tablaUsuarios tbody td {
+    vertical-align: middle;
+    padding: 1rem;
+}
+
+#tablaUsuarios tbody tr {
+    transition: background-color var(--transition-speed);
+}
+
+#tablaUsuarios tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* --- Botones de Acción --- */
+.btn {
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: all var(--transition-speed);
+    padding: 0.5rem 1rem;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-action {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    margin: 0 0.125rem;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* --- Badges --- */
+.badge {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+/* --- Modales --- */
+.modal-content {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+/* --- Formularios --- */
+.form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+.form-control {
+    border-radius: var(--border-radius);
+    border: 1px solid #ced4da;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.form-control.is-invalid {
+    border-color: var(--danger-color);
+}
+
+.form-control.is-invalid:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* --- Input Group --- */
+.input-group-text {
+    background-color: var(--light-gray);
+    border: 1px solid #ced4da;
+}
+
+/* --- Alertas --- */
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-dismissible .btn-close {
+    padding: 0.75rem;
+}
+
+/* --- Spinner de Carga --- */
+#loadingSpinner {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Estado Vacío --- */
+#emptyState {
+    animation: fadeIn 0.5s ease-in;
+}
+
+#emptyState i {
+    opacity: 0.3;
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: auto;
+    border-top: 1px solid #dee2e6;
+}
+
+/* --- Utilidades --- */
+.text-truncate-custom {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Animaciones de Hover para Iconos --- */
+.bi:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+/* --- Tooltips --- */
+[data-bs-toggle="tooltip"] {
+    cursor: pointer;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .display-5 {
+        font-size: 2rem;
+    }
+
+    #tablaUsuarios thead th {
+        font-size: 0.75rem;
+        padding: 0.75rem 0.5rem;
+    }
+
+    #tablaUsuarios tbody td {
+        font-size: 0.875rem;
+        padding: 0.75rem 0.5rem;
+    }
+
+    .btn-action {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .text-truncate-custom {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .btn {
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+}
+
+/* --- Estados de Carga --- */
+.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Accesibilidad --- */
+.btn:focus,
+.form-control:focus,
+.btn-close:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* --- Mejoras visuales --- */
+.card-body {
+    padding: 0;
+}
+
+.table-dark {
+    background-color: #212529;
+}
+
+.table-hover tbody tr:hover {
+    cursor: pointer;
+}
+
+/* --- Iconos Bootstrap --- */
+.bi {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* --- Smooth Scroll --- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- Transiciones Globales --- */
+* {
+    transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease;
+}
